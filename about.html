@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Web Jevri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="suzuki.png" alt="Suzuki Logo" class="logo">
+      <h1>Header Saya</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="container">
+
+    <!-- KONTEN UTAMA -->
+    <main>
+      <h2>About</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </main>
+
+    <!-- SIDEBAR KANAN: tanggal & jam -->
+    <aside>
+      <h3>Info</h3>
+      <div class="clock-box">
+        <p id="tanggal"></p>
+        <p id="jam"></p>
+      </div>
+    </aside>
+
+  </div>
+
+  <script>
+    function updateWaktu() {
+      const sekarang = new Date();
+
+      const opsiTanggal = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('tanggal').textContent = sekarang.toLocaleDateString('id-ID', opsiTanggal);
+
+      const jam = String(sekarang.getHours()).padStart(2, '0');
+      const menit = String(sekarang.getMinutes()).padStart(2, '0');
+      const detik = String(sekarang.getSeconds()).padStart(2, '0');
+      document.getElementById('jam').textContent = jam + ':' + menit + ':' + detik;
+    }
+
+    updateWaktu();
+    setInterval(updateWaktu, 1000);
+  </script>
+
+</body>
+</html>
